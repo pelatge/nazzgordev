@@ -1,4 +1,4 @@
-import { React, Link } from "libraries";
+import { React, Link } from "./../../libraries";
 
 const Homepage = () => {
   return (

@@ -13,8 +13,9 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/plugin-syntax-jsx": "^7.16.7",
     "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.1",
+    "@babel/preset-react": "^7.16.7",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.1.0",
     "css-loader": "^6.6.0",

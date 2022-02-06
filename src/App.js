@@ -1,11 +1,14 @@
-import { React} from './libraries';
+import { React, BrowserRouter as Router,Route } from './libraries';
+import { appRoutes } from './routes';
 
-
-
-export default function App() {
+const App = () => {
   return (
-    <div>
-    
-    </div>
-  )
+    <Router>
+      <Switch>
+        {appRoutes.map(route => <Route {...route} />)}
+      </Switch>
+    </Router>
+  );
 }
+
+export default App;

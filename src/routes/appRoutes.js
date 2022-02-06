@@ -1,4 +1,4 @@
-import { Homepage, About } from "pages";
+import { Homepage, About } from "./../pages";
 
 const appRoutes = [
   {
