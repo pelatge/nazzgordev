@@ -2,9 +2,9 @@
 ## Template Struktur Project Aplikasi React
 
 
-Struktur project ini cocok bagi aplikasi kecil dan besar, <strong>WEB</strong> maupun <strong>React Native</strong> (disesuaikan saja).
+Struktur project ini cocok bagi aplikasi kecil dan besar, <strong>Web</strong> maupun <strong>React Native</strong> (disesuaikan saja).
 
-Repo ini hanya sekedar template project saja.Sebagai bahan belajar React,tailwindcss dan Webpack.
+Repositori ini hanya sekedar template project saja.Sebagai bahan belajar React,tailwindcss dan Webpack.
 
 cara menjalankannya:
 'npm start' untuk development
@@ -17,5 +17,6 @@ didalamnya sudah include:
 - react router
 - axios
 
-Itu saja, semoga bermanfaat.
-Keep learning guys :D
+Jangan malas untuk membaca dan melakukan *googling*.
+Kerja keras tidak bernah berhianat, semoga bermanfaat.
+*Keep learning guys* :D
