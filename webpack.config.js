@@ -21,7 +21,11 @@ module.exports = {
       {
         test:/\.css$/,
         use:['style-loader','css-loader'],
-      }
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
     ],
   },
     resolve: {
@@ -34,7 +38,7 @@ module.exports = {
   plugins: [
   new webpack.HotModuleReplacementPlugin(),
   new HtmlWebpackPlugin({
-    template:('./dist/index.html'),
+    template:('dist/index.html'),
     //inject:true
      }),
   new webpack.ProvidePlugin({

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "taildev": "npx tailwindcss -i ./src/main.css -o ./src/styles.css ",
-    "stage":"webpack serve --config ./webpack.config.js --mode development",
+    "stage": "webpack serve --config ./webpack.config.js --mode development",
     "start": "npm run taildev && webpack serve --config ./webpack.config.js --mode development",
     "build": "npm run taildev && webpack --mode production"
   },
@@ -20,6 +20,7 @@
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.1.0",
     "css-loader": "^6.6.0",
+    "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.6",
     "react-hot-loader": "^4.13.0",
