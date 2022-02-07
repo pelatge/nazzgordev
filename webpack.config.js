@@ -23,7 +23,11 @@ module.exports = {
       {
         test:/\.css$/,
         use:['style-loader','css-loader'],
-      }
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
     ],
   },
     resolve: {
@@ -37,11 +41,12 @@ module.exports = {
   new webpack.HotModuleReplacementPlugin(),
   new HtmlWebpackPlugin({
     template:('./dist/index.html'),
-    inject:true
+    //inject:true
      }),
   new webpack.ProvidePlugin({
-    'react':'React'
-  }) 
+    "React": "react",
+  }),
+
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
