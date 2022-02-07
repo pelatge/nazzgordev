@@ -1,4 +1,4 @@
-import Homepage from "./Homepage";
+import Home from "./Home";
 import About from "./About";
 
-export { Homepage, About };
+export { Home, About };

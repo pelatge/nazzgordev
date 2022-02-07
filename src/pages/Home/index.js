@@ -1,6 +1,6 @@
 import { React, Link } from "./../../libraries";
 
-const Homepage = () => {
+const Home = () => {
   return (
     <div>
       <h1>Selamat datang di Nazggordev</h1>
@@ -11,4 +11,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default Home;

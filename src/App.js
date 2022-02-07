@@ -1,4 +1,4 @@
-import { React, BrowserRouter as Router,Route } from './libraries';
+import { React as react, BrowserRouter as Router,Route } from './libraries';
 import { appRoutes } from './routes';
 
 const App = () => {

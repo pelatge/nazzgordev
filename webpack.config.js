@@ -31,9 +31,13 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(),new HtmlWebpackPlugin({
-    template:('./dist/index.html')
-  })],
+  plugins: [
+  new webpack.HotModuleReplacementPlugin(),
+  new HtmlWebpackPlugin({
+    template:('./dist/index.html'),
+     }),
+ 
+  ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
     hot: true,

@@ -1,4 +1,4 @@
-import { React } from 'libraries';
+import { React } from "./../../libraries";
 
 const BaseContainer = ({ children }) => {
   return (

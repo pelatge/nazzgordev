@@ -1,4 +1,4 @@
-import { Homepage, About } from "./../pages";
+import { Home, About } from "./../pages";
 
 const appRoutes = [
   {
@@ -9,7 +9,7 @@ const appRoutes = [
   },
   {
     name: "Homepage",
-    component: Homepage,
+    component: Home,
     exact: true,
     path: "/"
   }
