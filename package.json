@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "taildev": "npx tailwindcss -i ./src/main.css -o ./src/styles.css ",
-    "stage":"webpack serve --config ./webpack.config.js --mode development",
+    "stage": "webpack serve --config ./webpack.config.js --mode development",
     "start": "npm run taildev && webpack serve --config ./webpack.config.js --mode development",
     "build": "npm run taildev && webpack --mode production"
   },

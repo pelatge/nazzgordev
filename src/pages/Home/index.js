@@ -1,4 +1,5 @@
-import { React, Link } from "./../../libraries";
+import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Home = () => {
   return (

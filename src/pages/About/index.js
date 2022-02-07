@@ -1,4 +1,4 @@
-import { React } from "./../../libraries";
+import  React from "react";
 
 const About = () => {
   return (
