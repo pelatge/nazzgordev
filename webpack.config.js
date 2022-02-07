@@ -35,8 +35,11 @@ module.exports = {
   new webpack.HotModuleReplacementPlugin(),
   new HtmlWebpackPlugin({
     template:('./dist/index.html'),
-    inject:true
+    //inject:true
      }),
+  new webpack.ProvidePlugin({
+    "React": "react",
+  }),
  
   ],
   devServer: {
