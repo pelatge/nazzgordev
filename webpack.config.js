@@ -41,7 +41,7 @@ module.exports = {
   new webpack.HotModuleReplacementPlugin(),
   new HtmlWebpackPlugin({
     template:('./dist/index.html'),
-    //inject:true
+    inject:true
      }),
   new webpack.ProvidePlugin({
     "React": "react",
@@ -51,6 +51,7 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
     hot: true,
-    compress:true
+    compress:true,
+    historyApiFallback:true
   },
 };
