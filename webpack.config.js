@@ -1,57 +1,124 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+//const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+//const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+//const HtmlWebpackInjector = require('html-webpack-injector');
 
-
-
-
-module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
-  stats:{
-    children:true,
+const config = {
+  entry: [
+    'react-hot-loader/patch',
+    './src/index.js'
+  ],
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
   },
   module: {
     rules: [
       {
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ['@babel/preset-env','@babel/preset-react'],
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /\.png$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              mimetype: 'image/png'
+            }
           }
-        }
-      },
-      {
-        test:/\.css$/,
-        use:['style-loader','css-loader'],
-      },
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
-      },
-    ],
+        ]
+      }
+    ]
   },
-    resolve: {
-    extensions: ['*', '.js', '.jsx','.css'],
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
   },
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
-  },
-  plugins: [
-  new webpack.HotModuleReplacementPlugin(),
-  new HtmlWebpackPlugin({
-    template:('./dist/index.html'),
-    inject:true
-     }),
-  new webpack.ProvidePlugin({
-    "React": "react",
-  }),
-
-  ],
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
-    hot: true,
-    compress:true,
-    historyApiFallback:true
+    'static': {
+      directory: './dist'
+    },
+    open: true,
+    watchFiles: ['dist/**/*'],
+    hot:true,   
+    onListening: function (devServer) {
+      if (!devServer) {
+        throw new Error('webpack-dev-server is not defined');
+      }
+
+      const port = devServer.server.address().port;
+      console.log('Listening on port:', port);
+    },
   },
+  
+  plugins: [
+//   new HtmlWebpackHarddiskPlugin({
+//   outputPath: path.resolve(__dirname, 'dist')
+// }),
+    // new CopyPlugin({
+    //   patterns: [{ from: 'src/index.html' }],
+    // }),
+    new HtmlWebpackPlugin({
+      // templateContent: ({ htmlWebpackPlugin }) => '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title>' + htmlWebpackPlugin.options.title + '</title></head><body><div id=\"app\"></div></body></html>',
+      title:"simpleReact development",
+      template: './src/index.html',
+      // filename:'[name].html'
+      // alwaysWriteToDisk: true,
+        // chunks: '[name].js'
+    }),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    //new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+    }),
+    //new HtmlWebpackInjector()
+  ],
+  // optimization: {
+  //   runtimeChunk: 'single',
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       vendor: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: 'vendors',
+  //         chunks: 'all'
+  //       }
+  //     }
+  //   }
+  // }
+};
+
+module.exports = (env, argv) => {
+  if (argv.hot) {
+    // Cannot use 'contenthash' when hot reloading is enabled.
+    config.output.filename = '[name].js';
+  }
+  if (argv.mode === 'development') {
+    config.devtool = 'source-map';
+    config.target = 'web';
+  }
+
+  return config;
 };
