@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "taildev": "npx tailwindcss -i ./src/main.css -o ./src/styles.css ",
-    "stage": "webpack serve --config ./webpack.config.js --mode development ",
-    "start": "npm run taildev && webpack serve --config ./webpack.config.js --mode development",
-    "build": "npm run taildev && webpack --mode production"
+    "clean": "rm -rf ./dist",
+    "start": "webpack serve --config ./webpack.config.js --hot --mode development ",
+    "dev": "webpack  --mode development",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
