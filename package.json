@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "start": "webpack serve --config ./webpack.config.js --hot --mode development ",
+    "start": "webpack serve --hot --mode development ",
     "dev": "webpack  --mode development",
     "build": "webpack --mode production"
   },
@@ -22,13 +22,15 @@
     "css-loader": "^6.6.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.5.3",
     "postcss": "^8.4.6",
     "react-hot-loader": "^4.13.0",
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.0.18",
-    "webpack": "^5.3.2",
-    "webpack-cli": "^4.1.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack": "^5.68.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",

@@ -18,7 +18,7 @@ didalamnya sudah include:
 - axios
 - tailwindcss
 - react 17
-- webpack 7
+- webpack 5
 - Hot Module Replacement
 
 Jangan malas untuk membaca dan melakukan *googling*.
