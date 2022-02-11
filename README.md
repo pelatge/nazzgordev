@@ -16,6 +16,10 @@ didalamnya sudah include:
 - redux
 - react router
 - axios
+- tailwindcss
+- react 17
+- webpack 7
+- Hot Module Replacement
 
 Jangan malas untuk membaca dan melakukan *googling*.
 Kerja keras tidak bernah berhianat, semoga bermanfaat.
