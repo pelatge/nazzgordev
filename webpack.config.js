@@ -81,7 +81,7 @@ const config = {
     // }),
     new HtmlWebpackPlugin({
       // templateContent: ({ htmlWebpackPlugin }) => '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title>' + htmlWebpackPlugin.options.title + '</title></head><body><div id=\"app\"></div></body></html>',
-      title:"simpleReact development",
+      title:"NazzgorDev development",
       template: './src/index.html',
       // filename:'[name].html'
       // alwaysWriteToDisk: true,
