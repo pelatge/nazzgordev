@@ -61,7 +61,8 @@ const config = {
     },
     open: true,
     watchFiles: ['dist/**/*'],
-    hot:true,   
+    hot:true,
+    historyApiFallback:true,   
     onListening: function (devServer) {
       if (!devServer) {
         throw new Error('webpack-dev-server is not defined');
@@ -114,6 +115,7 @@ module.exports = (env, argv) => {
   if (argv.hot) {
     // Cannot use 'contenthash' when hot reloading is enabled.
     config.output.filename = '[name].js';
+    config.output.publicPath='/';
   }
   if (argv.mode === 'development') {
     config.devtool = 'source-map';
